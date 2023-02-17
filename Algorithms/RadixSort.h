@@ -5,9 +5,14 @@
 #pragma once
 
 struct RadixSort {
-    static void radixSort(int *array, int n);
+    static void radixSortTime(int *array, int n);
+
+    static int radixSortOperations(int *array, int n);
 
 private:
-    static int getMaxValue(int *array, int n);
+    static int getMaxValueTime(int *array, int n);
+
+    static int getMaxValueOperations(int *array, int n, int &counter);
+
 };
 

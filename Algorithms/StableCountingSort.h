@@ -5,9 +5,13 @@
 #pragma once
 
 struct StableCountingSort {
-    static void stableCountingSort(int *array, int n);
+    static void stableCountingSortTime(int *array, int n);
+
+    static int stableCountingSortOperations(int *array, int n);
 
 private:
-    static int getMaxValue(int *array, int n);
+    static int getMaxValueTime(int *array, int n);
+
+    static int getMaxValueOperations(int *array, int n, int &counter);
 };
 

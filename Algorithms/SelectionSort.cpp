@@ -5,7 +5,7 @@
 #include <algorithm>
 #include "SelectionSort.h"
 
-void SelectionSort::selectionSort(int *array, int n) {
+void SelectionSort::selectionSortTime(int *array, int n) {
     for (int i = 0; i < n - 1; ++i) {
         int min = i;
         for (int j = i + 1; j < n; ++j) {
@@ -15,4 +15,18 @@ void SelectionSort::selectionSort(int *array, int n) {
         }
         std::swap(array[i], array[min]);
     }
+}
+
+int SelectionSort::selectionSortOperations(int *array, int n) {
+    int counter = 0;
+    for (int i = 0; i < n - 1; ++i) {
+        int min = i;
+        for (int j = i + 1; j < n; ++j) {
+            if (array[j] < array[min]) {
+                min = j;
+            }
+        }
+        std::swap(array[i], array[min]);
+    }
+    return counter;
 }

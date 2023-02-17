@@ -4,7 +4,11 @@
 
 #pragma once
 
+
 struct SelectionSort {
-    static void selectionSort(int *array, int n);
+    static void selectionSortTime(int *array, int n);
+
+    static int selectionSortOperations(int *array, int n);
+
 };
 

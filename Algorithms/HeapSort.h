@@ -5,10 +5,14 @@
 #pragma once
 
 struct HeapSort {
-    static void heapSort(int *array, int n);
+    static void heapSortTime(int *array, int n);
+
+    static int heapSortOperations(int *array, int n);
 
 private:
-    static void heapify(int *array, int n, int i);
+    static void heapifyTime(int *array, int n, int i);
+
+    static void heapifyOperations(int *array, int n, int i, int &counter);
 };
 
 

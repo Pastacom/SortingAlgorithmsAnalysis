@@ -4,7 +4,7 @@
 
 #include "InsertionSort.h"
 
-void InsertionSort::insertionSort(int *array, int n) {
+void InsertionSort::insertionSortTime(int *array, int n) {
     for (int i = 1; i < n; ++i) {
         int value = array[i];
         int j = i - 1;
@@ -16,7 +16,7 @@ void InsertionSort::insertionSort(int *array, int n) {
     }
 }
 
-int InsertionSort::binarySearch(int left, int right, int target, const int *array) {
+int InsertionSort::binarySearchTime(int left, int right, int target, const int *array) {
     while (left <= right) {
         int mid = left + (right - left) / 2;
         if (array[mid] == target) {
@@ -31,9 +31,9 @@ int InsertionSort::binarySearch(int left, int right, int target, const int *arra
     return left;
 }
 
-void InsertionSort::binaryInsertionSort(int *array, int n) {
+void InsertionSort::binaryInsertionSortTime(int *array, int n) {
     for (int i = 1; i < n; ++i) {
-        int index = binarySearch(0, i - 1, array[i], array);
+        int index = binarySearchTime(0, i - 1, array[i], array);
         int value = array[i];
         int j = i - 1;
         while (j >= index) {
@@ -41,6 +41,50 @@ void InsertionSort::binaryInsertionSort(int *array, int n) {
             --j;
         }
         array[j + 1] = value;
-
     }
+}
+
+int InsertionSort::insertionSortOperations(int *array, int n) {
+    int counter = 0;
+    for (int i = 1; i < n; ++i) {
+        int value = array[i];
+        int j = i - 1;
+        while (j >= 0 && array[j] > value) {
+            array[j + 1] = array[j];
+            --j;
+        }
+        array[j + 1] = value;
+    }
+    return counter;
+}
+
+int InsertionSort::binarySearchOperations(int left, int right, int target,
+                                          const int *array, int &counter) {
+    while (left <= right) {
+        int mid = left + (right - left) / 2;
+        if (array[mid] == target) {
+            return mid + 1;
+        }
+        if (array[mid] < target) {
+            left = mid + 1;
+        } else {
+            right = mid - 1;
+        }
+    }
+    return left;
+}
+
+int InsertionSort::binaryInsertionSortOperations(int *array, int n) {
+    int counter = 0;
+    for (int i = 1; i < n; ++i) {
+        int index = binarySearchTime(0, i - 1, array[i], array);
+        int value = array[i];
+        int j = i - 1;
+        while (j >= index) {
+            array[j + 1] = array[j];
+            --j;
+        }
+        array[j + 1] = value;
+    }
+    return counter;
 }

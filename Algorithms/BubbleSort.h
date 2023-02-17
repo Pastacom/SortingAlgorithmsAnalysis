@@ -5,9 +5,16 @@
 #pragma once
 
 struct BubbleSort {
-    static void bubbleSort(int *array, int n);
+    static void bubbleSortTime(int *array, int n);
 
-    static void firstIversonBubbleSort(int *array, int n);
+    static void firstIversonBubbleSortTime(int *array, int n);
 
-    static void secondIversonBubbleSort(int *array, int n);
+    static void secondIversonBubbleSortTime(int *array, int n);
+
+    static int bubbleSortOperations(int *array, int n);
+
+    static int firstIversonBubbleSortOperations(int *array, int n);
+
+    static int secondIversonBubbleSortOperations(int *array, int n);
+
 };

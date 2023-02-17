@@ -4,7 +4,7 @@
 
 #include "ShellSort.h"
 
-void ShellSort::shellSort(int *array, int n) {
+void ShellSort::shellSortTime(int *array, int n) {
     for (int gap = n / 2; gap > 0; gap /= 2) {
         for (int i = gap; i < n; ++i) {
             int value = array[i];
@@ -17,7 +17,7 @@ void ShellSort::shellSort(int *array, int n) {
     }
 }
 
-void ShellSort::ciuraSort(int *array, int n) {
+void ShellSort::ciuraSortTime(int *array, int n) {
     for (int gap : ciuraSequence) {
         for (int i = gap; i < n; ++i) {
             int value = array[i];
@@ -28,4 +28,34 @@ void ShellSort::ciuraSort(int *array, int n) {
             array[j] = value;
         }
     }
+}
+
+int ShellSort::shellSortOperations(int *array, int n) {
+    int counter = 0;
+    for (int gap = n / 2; gap > 0; gap /= 2) {
+        for (int i = gap; i < n; ++i) {
+            int value = array[i];
+            int j = i;
+            for (; j >= gap && array[j - gap] > value; j -= gap) {
+                array[j] = array[j - gap];
+            }
+            array[j] = value;
+        }
+    }
+    return counter;
+}
+
+int ShellSort::ciuraSortOperations(int *array, int n) {
+    int counter = 0;
+    for (int gap : ciuraSequence) {
+        for (int i = gap; i < n; ++i) {
+            int value = array[i];
+            int j = i;
+            for (; j >= gap && array[j - gap] > value; j -= gap) {
+                array[j] = array[j - gap];
+            }
+            array[j] = value;
+        }
+    }
+    return counter;
 }
