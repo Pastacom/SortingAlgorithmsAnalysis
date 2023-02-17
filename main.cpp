@@ -13,11 +13,12 @@ int main() {
     for (int i = 1; i <= 13; ++i) {
         int *arr = new int[size];
         std::copy(original, original+size, arr);
+        std::function<void(int*, int)> sortingAlgorithm = chooseAlgorithm(i);
         {
             TimerGuard timer("Time for sorting elapsed: ", std::cout);
-            chooseAlgorithm(i)(arr, size);
-            std::cout << i << ". " + getName(i) << ": sorted = " << std::boolalpha << isSorted(arr, size) << '\n';
+            sortingAlgorithm(arr, size);
         }
+        std::cout << i << ". " + getName(i) << ": sorted = " << std::boolalpha << isSorted(arr, size) << '\n';
         /*for(int j = 0; j < size; ++j) {
             std::cout << arr[j] << " ";
         }

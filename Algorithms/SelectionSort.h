@@ -5,6 +5,6 @@
 #pragma once
 
 struct SelectionSort {
-    static void selectionSort(int array[], int n);
+    static void selectionSort(int *array, int n);
 };
 

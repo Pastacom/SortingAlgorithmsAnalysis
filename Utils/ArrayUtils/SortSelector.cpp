@@ -5,15 +5,15 @@
 #include <map>
 #include <functional>
 #include <string>
-#include "../../algorithms/SelectionSort.h"
-#include "../../algorithms/BubbleSort.h"
-#include "../../algorithms/InsertionSort.h"
-#include "../../algorithms/StableCountingSort.h"
-#include "../../algorithms/RadixSort.h"
-#include "../../algorithms/MergeSort.h"
-#include "../../algorithms/QuickSort.h"
-#include "../../algorithms/HeapSort.h"
-#include "../../algorithms/ShellSort.h"
+#include "../../Algorithms/SelectionSort.h"
+#include "../../Algorithms/BubbleSort.h"
+#include "../../Algorithms/InsertionSort.h"
+#include "../../Algorithms/StableCountingSort.h"
+#include "../../Algorithms/RadixSort.h"
+#include "../../Algorithms/MergeSort.h"
+#include "../../Algorithms/QuickSort.h"
+#include "../../Algorithms/HeapSort.h"
+#include "../../Algorithms/ShellSort.h"
 
 static std::map<int, std::pair<std::function<void(int*, int)>, std::string>> algorithms {
         {1, std::make_pair(SelectionSort::selectionSort, "Selection sort")},

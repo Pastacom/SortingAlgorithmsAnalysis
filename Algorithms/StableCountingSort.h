@@ -5,7 +5,7 @@
 #pragma once
 
 struct StableCountingSort {
-    static void stableCountingSort(int array[], int n);
+    static void stableCountingSort(int *array, int n);
 
 private:
     static int getMaxValue(int *array, int n);
