@@ -9,11 +9,9 @@
 #include <iostream>
 
 class TimerGuard  {
-    std::string message;
     std::chrono::time_point<std::chrono::system_clock, std::chrono::duration<double>> start;
-    std::ostream* stream;
-
+    std::chrono::duration<double>* total;
 public:
-    explicit TimerGuard(std::string_view message = "", std::ostream& out = std::cout);
+    explicit TimerGuard(std::chrono::duration<double>* time = nullptr);
     ~TimerGuard();
 };

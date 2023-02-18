@@ -4,13 +4,12 @@
 
 #include "TimerGuard.h"
 
-TimerGuard::TimerGuard(std::string_view message, std::ostream &out) {
-    this->message = message;
+TimerGuard::TimerGuard(std::chrono::duration<double> *time) {
     start = std::chrono::high_resolution_clock::now();
-    stream = &out;
+    total = time;
 }
 
 TimerGuard::~TimerGuard() {
     std::chrono::duration<double> res = std::chrono::high_resolution_clock::now() - start;
-    *stream << message << " " << res.count() * 1000000 << " ns\n";
+    *total += res;
 }
