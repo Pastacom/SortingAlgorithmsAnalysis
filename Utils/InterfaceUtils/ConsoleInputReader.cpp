@@ -22,3 +22,4 @@ static int readConsoleInput() {
     } while (ans < 1 || ans > 14);
     return ans;
 }
+

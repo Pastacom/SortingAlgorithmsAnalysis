@@ -24,7 +24,8 @@ static void runAlgorithm(std::pair<std::function<void(int*, int)>,
             algorithm.first(array, size);
         }
     }
-    std::cout << std::chrono::duration_cast<std::chrono::nanoseconds>(total / 50.0).count() << '\n';
+    std::cout << "Time for sorting elapsed: " <<
+    std::chrono::duration_cast<std::chrono::nanoseconds>(total / 50.0).count() << " nanoseconds\n";
     std::cout << "sorted = " << std::boolalpha << isSorted(array, size) << '\n';
     delete[] array;
     array = new int[size];

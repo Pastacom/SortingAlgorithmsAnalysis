@@ -6,35 +6,39 @@
 #include <algorithm>
 #include "../../Algorithms/ShellSort.h"
 
-static void generateArray(int *arr, int end, int length) {
-    for (int i = 0; i < length; ++i) {
-        arr[i] = rand() % end;
+static void generateArray(int *array, int n, int bound) {
+    for (int i = 0; i < n; ++i) {
+        array[i] = rand() % bound;
     }
 }
 
-static void generateReversedArray(int *arr, int end, int length) {
-    for (int i = 0; i < length; ++i) {
-        arr[i] = 1 + (rand() % end);
+static void generateReversedArray(int *array,  int n, int bound) {
+    for (int i = 0; i < n; ++i) {
+        array[i] = 1 + (rand() % bound);
     }
 }
 
-static void swapRandomElements(int *arr, int length) {
-    for (int i = 0; i < length; ++i) {
-        int index = rand() % length;
-        std::swap(arr[i], arr[index]);
+static void swapRandomElements(int *array, int n) {
+    for (int i = 1000; i-1000 <= n; i += 1000) {
+        for (int j = 0; j < 10; ++j) {
+            int first = rand() % std::min(i, n);
+            int second = rand() % std::min(i, n);
+            std::swap(array[first], array[second]);
+        }
     }
 }
 
 static void chooseArray(int choice, int *array, int n) {
     if (choice == 1) {
-        generateArray(array, 5, n);
+        generateArray(array, n, 6);
     } else if (choice == 2) {
-        generateArray(array, 4000, n);
+        generateArray(array, n, 4001);
     } else if (choice == 3) {
-        generateArray(array, 4000, n);
+        generateArray(array, n, 4001);
+        ShellSort::ciuraSortTime(array, n);
         swapRandomElements(array, n);
     } else {
-        generateReversedArray(array, 4100, n);
+        generateReversedArray(array, n, 4101);
         ShellSort::ciuraSortTime(array, n);
         for (int i = 0; i < n / 2; ++i) {
             std::swap(array[i], array[n - i - 1]);

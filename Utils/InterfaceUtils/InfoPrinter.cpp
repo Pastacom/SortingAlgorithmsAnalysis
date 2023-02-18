@@ -3,7 +3,7 @@
 //
 
 #include <iostream>
-#include "../ArrayUtils/ArrayData.cpp"
+#include "../ArrayUtils/AlgorithmsInfo.cpp"
 
 static void printAlgorithms() {
     for (int i = 1; i < 14; ++i) {
