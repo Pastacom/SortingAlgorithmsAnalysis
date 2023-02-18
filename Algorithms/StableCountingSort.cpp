@@ -38,29 +38,38 @@ int StableCountingSort::getMaxValueOperations(int *array, int n, int &counter) {
     int ans = array[0];
     for (int i = 1; i < n; ++i) {
         ans = std::max(ans, array[i]);
+        counter += 14;
     }
+    counter += 9;
     return ans;
 }
 
 int StableCountingSort::stableCountingSortOperations(int *array, int n) {
     int counter = 0;
-    int bound = getMaxValueTime(array, n);
+    int bound = getMaxValueOperations(array, n, counter);
     int sums[bound + 1];
     int res[n];
+    counter += 9;
     for (int i = 0; i < bound + 1; ++i) {
         sums[i] = 0;
+        counter += 10;
     }
     for (int i = 0; i < n; ++i) {
         ++sums[array[i]];
+        counter += 11;
     }
     for (int i = 1; i < bound + 1; ++i) {
         sums[i] += sums[i - 1];
+        counter += 18;
     }
     for (int i = n - 1; i >= 0; --i) {
         res[--sums[array[i]]] = array[i];
+        counter += 16;
     }
     for (int i = 0; i < n; ++i) {
         array[i] = res[i];
+        counter += 12;
     }
+    counter += 23;
     return counter;
 }

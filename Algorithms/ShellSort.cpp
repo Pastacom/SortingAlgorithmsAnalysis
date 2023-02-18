@@ -38,10 +38,14 @@ int ShellSort::shellSortOperations(int *array, int n) {
             int j = i;
             for (; j >= gap && array[j - gap] > value; j -= gap) {
                 array[j] = array[j - gap];
+                counter += 24;
             }
             array[j] = value;
+            counter += 27;
         }
+        counter += 10;
     }
+    counter += 5;
     return counter;
 }
 
@@ -53,9 +57,13 @@ int ShellSort::ciuraSortOperations(int *array, int n) {
             int j = i;
             for (; j >= gap && array[j - gap] > value; j -= gap) {
                 array[j] = array[j - gap];
+                counter += 24;
             }
             array[j] = value;
+            counter += 27;
         }
+        counter += 14;
     }
+    counter += 4;
     return counter;
 }

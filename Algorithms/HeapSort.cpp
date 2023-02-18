@@ -33,28 +33,35 @@ void HeapSort::heapSortTime(int *array, int n) {
 
 void HeapSort::heapifyOperations(int *array, int n, int i, int &counter) {
     int val = i;
+    counter += 2;
     do {
         i = val;
         int left = 2 * i + 1;
         int right = 2 * (i + 1);
         if (left < n && array[left] > array[val]) {
             val = left;
+            counter += 2;
         }
         if (right < n && array[right] > array[val]) {
             val = right;
+            counter += 2;
         }
         std::swap(array[val], array[i]);
+        counter += 44;
     } while (val != i);
 }
 
 int HeapSort::heapSortOperations(int *array, int n) {
     int counter = 0;
     for (int i = n / 2 - 1; i >= 0; i--) {
-        heapifyTime(array, n, i);
+        heapifyOperations(array, n, i, counter);
+        counter += 9;
     }
     for (int i = n - 1; i > 0; i--) {
         std::swap(array[0], array[i]);
-        heapifyTime(array, i, 0);
+        heapifyOperations(array, i, 0, counter);
+        counter += 17;
     }
+    counter += 11;
     return counter;
 }

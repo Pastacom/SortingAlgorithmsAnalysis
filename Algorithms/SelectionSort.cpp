@@ -24,9 +24,13 @@ int SelectionSort::selectionSortOperations(int *array, int n) {
         for (int j = i + 1; j < n; ++j) {
             if (array[j] < array[min]) {
                 min = j;
+                counter += 2;
             }
+            counter += 12;
         }
         std::swap(array[i], array[min]);
+        counter += 23;
     }
+    counter += 5;
     return counter;
 }

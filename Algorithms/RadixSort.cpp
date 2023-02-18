@@ -42,7 +42,9 @@ int RadixSort::getMaxValueOperations(int *array, int n, int &counter) {
     int ans = array[0];
     for (int i = 1; i < n; ++i) {
         ans = std::max(ans, array[i]);
+        counter += 14;
     }
+    counter += 9;
     return ans;
 }
 
@@ -50,25 +52,33 @@ int RadixSort::radixSortOperations(int *array, int n) {
     int counter = 0;
     int exp = 1;
     int res[n * 4];
-    int max = getMaxValueTime(array, n);
+    int max = getMaxValueOperations(array, n, counter);
+    counter += 8;
     while (max / exp > 0) {
         int sums[256];
         for (int & sum : sums) {
             sum = 0;
+            counter += 8;
         }
         for (int i = 0; i < n; ++i) {
             ++sums[array[i] / exp % 256];
+            counter += 14;
         }
         for (int i = 1; i < 256; ++i) {
             sums[i] += sums[i - 1];
+            counter += 13;
         }
         for (int i = n - 1; i >= 0; --i) {
             res[--sums[array[i] / exp % 256]] = array[i];
+            counter += 29;
         }
         for (int i = 0; i < n; ++i) {
             array[i] = res[i];
+            counter += 12;
         }
         exp *= 256;
+        counter += 27;
     }
+    counter += 4;
     return counter;
 }

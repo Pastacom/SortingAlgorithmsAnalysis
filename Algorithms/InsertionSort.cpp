@@ -52,9 +52,12 @@ int InsertionSort::insertionSortOperations(int *array, int n) {
         while (j >= 0 && array[j] > value) {
             array[j + 1] = array[j];
             --j;
+            counter += 10;
         }
         array[j + 1] = value;
+        counter += 26;
     }
+    ++counter;
     return counter;
 }
 
@@ -63,28 +66,36 @@ int InsertionSort::binarySearchOperations(int left, int right, int target,
     while (left <= right) {
         int mid = left + (right - left) / 2;
         if (array[mid] == target) {
+            counter += 2;
             return mid + 1;
         }
         if (array[mid] < target) {
             left = mid + 1;
+            counter += 3;
         } else {
             right = mid - 1;
+            counter += 3;
         }
+        counter += 20;
     }
+    counter += 4;
     return left;
 }
 
 int InsertionSort::binaryInsertionSortOperations(int *array, int n) {
     int counter = 0;
     for (int i = 1; i < n; ++i) {
-        int index = binarySearchTime(0, i - 1, array[i], array);
+        int index = binarySearchOperations(0, i - 1, array[i], array, counter);
         int value = array[i];
         int j = i - 1;
         while (j >= index) {
             array[j + 1] = array[j];
             --j;
+            counter += 13;
         }
         array[j + 1] = value;
+        counter += 31;
     }
+    counter += 4;
     return counter;
 }
