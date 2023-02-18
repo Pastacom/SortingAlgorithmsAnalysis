@@ -23,11 +23,10 @@ static void runAlgorithm(std::pair<std::function<void(int*, int)>,
             TimerGuard timer(&total);
             algorithm.first(array, size);
         }
+        delete[] array;
     }
     std::cout << "Time for sorting elapsed: " <<
     std::chrono::duration_cast<std::chrono::nanoseconds>(total / 50.0).count() << " nanoseconds\n";
-    std::cout << "sorted = " << std::boolalpha << isSorted(array, size) << '\n';
-    delete[] array;
     array = new int[size];
     std::copy(original, original+size, array);
     std:: cout << "Elementary operations performed: " << algorithm.second(array, size) << '\n';

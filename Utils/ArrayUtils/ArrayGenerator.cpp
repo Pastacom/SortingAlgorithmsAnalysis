@@ -33,8 +33,16 @@ static void swapRandomElements(int *array, int n) {
     }
 }
 
+static void clearMemory() {
+    delete[] first;
+    delete[] second;
+    delete[] third;
+    delete[] fourth;
+}
+
 static void generateArrays() {
     int n = 4100;
+    clearMemory();
     first = new int[n];
     second = new int[n];
     third = new int[n];

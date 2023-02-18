@@ -5,8 +5,8 @@
 
 int main() {
     std::string loop;
-    generateArrays();
     do {
+        generateArrays();
         printAlgorithms();
         int choice = readConsoleInput();
         chooseAlgorithm(choice);
@@ -16,4 +16,5 @@ int main() {
         } while (loop != "y" && loop != "n");
         std::cout << '\n';
     } while (loop == "y");
+    clearMemory();
 }
