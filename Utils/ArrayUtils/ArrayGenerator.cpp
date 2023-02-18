@@ -34,7 +34,7 @@ static void swapRandomElements(int *array, int n) {
 }
 
 static void generateArrays() {
-    int n = 4101;
+    int n = 4100;
     first = new int[n];
     second = new int[n];
     third = new int[n];
