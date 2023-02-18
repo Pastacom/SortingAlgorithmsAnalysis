@@ -41,20 +41,16 @@ static void algorithmIterator(std::pair<std::function<void(int*, int)>,
     for (int i = 50; i <= 300; i += 50) {
         std::cout << "\ncurrent size:" << i << '\n';
         for (int j = 1; j < 5; ++j) {
-            int original[i];
-            chooseArray(j, original, i);
             printArrayType(j);
-            runAlgorithm(sortingAlgorithm, original, i);
+            runAlgorithm(sortingAlgorithm, chooseArray(j), i);
         }
     }
     std::cout << "2.\n";
     for (int i = 100; i <= 4100; i += 100) {
         std::cout << "\ncurrent size:" << i << '\n';
         for (int j = 1; j < 5; ++j) {
-            int original[i];
-            chooseArray(j, original, i);
             printArrayType(j);
-            runAlgorithm(sortingAlgorithm, original, i);
+            runAlgorithm(sortingAlgorithm, chooseArray(j), i);
         }
     }
 }

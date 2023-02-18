@@ -5,6 +5,7 @@
 
 int main() {
     std::string loop;
+    generateArrays();
     do {
         printAlgorithms();
         int choice = readConsoleInput();
