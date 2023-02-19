@@ -34,7 +34,7 @@ void StableCountingSort::stableCountingSortTime(int *array, int n) {
     }
 }
 
-int StableCountingSort::getMaxValueOperations(int *array, int n, int &counter) {
+int StableCountingSort::getMaxValueOperations(int *array, int n, int64_t &counter) {
     int ans = array[0];
     for (int i = 1; i < n; ++i) {
         ans = std::max(ans, array[i]);
@@ -44,8 +44,8 @@ int StableCountingSort::getMaxValueOperations(int *array, int n, int &counter) {
     return ans;
 }
 
-int StableCountingSort::stableCountingSortOperations(int *array, int n) {
-    int counter = 0;
+int64_t StableCountingSort::stableCountingSortOperations(int *array, int n) {
+    int64_t counter = 0;
     int bound = getMaxValueOperations(array, n, counter);
     int sums[bound + 1];
     int res[n];

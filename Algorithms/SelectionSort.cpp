@@ -3,6 +3,7 @@
 //
 
 #include <algorithm>
+#include <cstdint>
 #include "SelectionSort.h"
 
 void SelectionSort::selectionSortTime(int *array, int n) {
@@ -17,8 +18,8 @@ void SelectionSort::selectionSortTime(int *array, int n) {
     }
 }
 
-int SelectionSort::selectionSortOperations(int *array, int n) {
-    int counter = 0;
+int64_t SelectionSort::selectionSortOperations(int *array, int n) {
+    int64_t counter = 0;
     for (int i = 0; i < n - 1; ++i) {
         int min = i;
         for (int j = i + 1; j < n; ++j) {

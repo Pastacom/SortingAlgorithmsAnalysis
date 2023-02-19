@@ -15,6 +15,7 @@
 #include "../../Algorithms/HeapSort.h"
 #include "../../Algorithms/ShellSort.h"
 
+// Algorithms data
 static std::map<int, std::pair<std::pair < std::function < void(int *, int)>,
         std::function<int(int*, int)>>,
 std::string>> algorithms {
@@ -59,11 +60,20 @@ std::string>> algorithms {
 "Ciura sort")}
 };
 
+/**
+ * Return couple of time-efficient algorithm and operation counting algorithm.
+ * @param choice id of algorithms in data map
+ * @return couple of time-efficient algorithm and operation counting algorithm
+ */
 static std::pair<std::function<void(int*, int)>,
         std::function<int(int*, int)>> getAlgorithm(int choice) {
     return algorithms[choice].first;
 }
-
+/**
+ * Get string representation of sorting algorithm.
+ * @param choice id of algorithm in data map
+ * @return algorithm name
+ */
 static std::string getName(int choice) {
     return algorithms[choice].second;
 }

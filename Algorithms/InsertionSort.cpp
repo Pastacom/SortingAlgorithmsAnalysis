@@ -2,6 +2,7 @@
 // Created by shind_wvnx on 16.02.2023.
 //
 
+#include <cstdint>
 #include "InsertionSort.h"
 
 void InsertionSort::insertionSortTime(int *array, int n) {
@@ -44,8 +45,8 @@ void InsertionSort::binaryInsertionSortTime(int *array, int n) {
     }
 }
 
-int InsertionSort::insertionSortOperations(int *array, int n) {
-    int counter = 0;
+int64_t InsertionSort::insertionSortOperations(int *array, int n) {
+    int64_t counter = 0;
     for (int i = 1; i < n; ++i) {
         int value = array[i];
         int j = i - 1;
@@ -62,7 +63,7 @@ int InsertionSort::insertionSortOperations(int *array, int n) {
 }
 
 int InsertionSort::binarySearchOperations(int left, int right, int target,
-                                          const int *array, int &counter) {
+                                          const int *array, int64_t &counter) {
     while (left <= right) {
         int mid = left + (right - left) / 2;
         if (array[mid] == target) {
@@ -82,8 +83,8 @@ int InsertionSort::binarySearchOperations(int left, int right, int target,
     return left;
 }
 
-int InsertionSort::binaryInsertionSortOperations(int *array, int n) {
-    int counter = 0;
+int64_t InsertionSort::binaryInsertionSortOperations(int *array, int n) {
+    int64_t counter = 0;
     for (int i = 1; i < n; ++i) {
         int index = binarySearchOperations(0, i - 1, array[i], array, counter);
         int value = array[i];

@@ -7,12 +7,12 @@
 struct RadixSort {
     static void radixSortTime(int *array, int n);
 
-    static int radixSortOperations(int *array, int n);
+    static int64_t radixSortOperations(int *array, int n);
 
 private:
     static int getMaxValueTime(int *array, int n);
 
-    static int getMaxValueOperations(int *array, int n, int &counter);
+    static int getMaxValueOperations(int *array, int n, int64_t &counter);
 
 };
 

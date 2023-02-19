@@ -2,6 +2,7 @@
 // Created by shind_wvnx on 16.02.2023.
 //
 
+#include <cstdint>
 #include "MergeSort.h"
 
 void MergeSort::mergeSortTime(int *array, int n) {
@@ -47,14 +48,14 @@ void MergeSort::mergeTime(int *array, int left, int mid, int right) {
     }
 }
 
-int MergeSort::mergeSortOperations(int *array, int n) {
-    int counter = 0;
+int64_t MergeSort::mergeSortOperations(int *array, int n) {
+    int64_t counter = 0;
     mergeTwoSubArraysOperations(array, 0, n-1, counter);
     counter += 5;
     return counter;
 }
 
-void MergeSort::mergeTwoSubArraysOperations(int *array, int left, int right, int &counter) {
+void MergeSort::mergeTwoSubArraysOperations(int *array, int left, int right, int64_t &counter) {
     if (left < right) {
         int mid = left + (right - left) / 2;
         mergeTwoSubArraysOperations(array, left, mid, counter);
@@ -65,7 +66,7 @@ void MergeSort::mergeTwoSubArraysOperations(int *array, int left, int right, int
     counter += 3;
 }
 
-void MergeSort::mergeOperations(int *array, int left, int mid, int right, int &counter) {
+void MergeSort::mergeOperations(int *array, int left, int mid, int right, int64_t &counter) {
     int left_size = mid - left + 1;
     int left_arr[left_size];
     int right_size = right - mid;

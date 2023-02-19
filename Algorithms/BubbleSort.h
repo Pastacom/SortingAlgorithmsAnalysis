@@ -11,10 +11,10 @@ struct BubbleSort {
 
     static void secondIversonBubbleSortTime(int *array, int n);
 
-    static int bubbleSortOperations(int *array, int n);
+    static int64_t bubbleSortOperations(int *array, int n);
 
-    static int firstIversonBubbleSortOperations(int *array, int n);
+    static int64_t firstIversonBubbleSortOperations(int *array, int n);
 
-    static int secondIversonBubbleSortOperations(int *array, int n);
+    static int64_t secondIversonBubbleSortOperations(int *array, int n);
 
 };

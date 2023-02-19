@@ -37,14 +37,14 @@ int QuickSort::partitionTime(int *array, int low, int high) {
     return right;
 }
 
-int QuickSort::quickSortOperations(int *array, int n) {
-    int counter = 0;
+int64_t QuickSort::quickSortOperations(int *array, int n) {
+    int64_t counter = 0;
     sortSubArrayOperations(array, 0, n-1, counter);
     counter += 5;
     return counter;
 }
 
-void QuickSort::sortSubArrayOperations(int *array, int left, int right, int &counter) {
+void QuickSort::sortSubArrayOperations(int *array, int left, int right, int64_t &counter) {
     if (left < right) {
         int pivot = partitionOperations(array, left, right, counter);
         sortSubArrayOperations(array, left, pivot-1, counter);
@@ -54,7 +54,7 @@ void QuickSort::sortSubArrayOperations(int *array, int left, int right, int &cou
     counter += 3;
 }
 
-int QuickSort::partitionOperations(int *array, int low, int high, int &counter) {
+int QuickSort::partitionOperations(int *array, int low, int high, int64_t &counter) {
     int target = array[low];
     int left = low+1;
     int right = high;

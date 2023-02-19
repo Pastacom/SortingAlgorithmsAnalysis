@@ -4,7 +4,14 @@
 
 #include "HeapSort.h"
 #include <algorithm>
+#include <cstdint>
 
+/**
+ * Time-efficient method to perform heap sort.
+ * @param array array to sort
+ * @param n array size
+ * @param i index in array
+ */
 void HeapSort::heapifyTime(int *array, int n, int i) {
     int val = i;
     do {
@@ -21,6 +28,11 @@ void HeapSort::heapifyTime(int *array, int n, int i) {
     } while (val != i);
 }
 
+/**
+ * Time-efficient method to iterate over elements meanwhile sorting with heapify.
+ * @param array array to sort
+ * @param n array size
+ */
 void HeapSort::heapSortTime(int *array, int n) {
     for (int i = n / 2 - 1; i >= 0; i--) {
         heapifyTime(array, n, i);
@@ -31,7 +43,14 @@ void HeapSort::heapSortTime(int *array, int n) {
     }
 }
 
-void HeapSort::heapifyOperations(int *array, int n, int i, int &counter) {
+/**
+ * Operations counting method to perform heap sort.
+ * @param array array to sort
+ * @param n array size
+ * @param i index in array
+ * @param counter number of performed elementary operations
+ */
+void HeapSort::heapifyOperations(int *array, int n, int i, int64_t &counter) {
     int val = i;
     counter += 2;
     do {
@@ -51,8 +70,14 @@ void HeapSort::heapifyOperations(int *array, int n, int i, int &counter) {
     } while (val != i);
 }
 
-int HeapSort::heapSortOperations(int *array, int n) {
-    int counter = 0;
+/**
+ * Operations counting method to iterate over elements meanwhile sorting with heapify.
+ * @param array array to sort
+ * @param n array size
+ * @param counter number of performed elementary operations
+ */
+int64_t HeapSort::heapSortOperations(int *array, int n) {
+    int64_t counter = 0;
     for (int i = n / 2 - 1; i >= 0; i--) {
         heapifyOperations(array, n, i, counter);
         counter += 9;

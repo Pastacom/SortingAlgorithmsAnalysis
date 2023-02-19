@@ -8,7 +8,7 @@
 struct SelectionSort {
     static void selectionSortTime(int *array, int n);
 
-    static int selectionSortOperations(int *array, int n);
+    static int64_t selectionSortOperations(int *array, int n);
 
 };
 

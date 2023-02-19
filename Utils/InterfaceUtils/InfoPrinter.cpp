@@ -5,6 +5,9 @@
 #include <iostream>
 #include "../ArrayUtils/AlgorithmsInfo.cpp"
 
+/**
+ * Method to output algorithms names.
+ */
 static void printAlgorithms() {
     for (int i = 1; i < 14; ++i) {
         std::cout << i << ". " + getName(i) << '\n';
@@ -12,21 +15,22 @@ static void printAlgorithms() {
     std::cout << "14. Perform all algorithms." << '\n';
 }
 
-static void printArrayType(int choice) {
+/**
+ * Method to get array type.
+ * @param choice type to return
+ * @return array type
+ */
+static std::string getArrayType(int choice) {
     switch (choice) {
         case 1:
-            std::cout << "\nFrom 0 to 5 array\n";
-            break;
+            return "From 0 to 5 array";
         case 2:
-            std::cout << "\nFrom 0 to 4000 array\n";
-            break;
+            return "From 0 to 4000 array";
         case 3:
-            std::cout << "\nAlmost sorted array\n";
-            break;
+            return "Almost sorted array";
         case 4:
-            std::cout << "\nReversed sorted array\n";
-            break;
+            return "Reversed sorted array";
         default:
-            return;
+            return "";
     }
 }

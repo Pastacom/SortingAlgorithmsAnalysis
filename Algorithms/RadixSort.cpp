@@ -3,6 +3,7 @@
 //
 
 #include <algorithm>
+#include <cstdint>
 #include "RadixSort.h"
 
 int RadixSort::getMaxValueTime(int *array, int n) {
@@ -38,7 +39,7 @@ void RadixSort::radixSortTime(int *array, int n) {
     }
 }
 
-int RadixSort::getMaxValueOperations(int *array, int n, int &counter) {
+int RadixSort::getMaxValueOperations(int *array, int n, int64_t &counter) {
     int ans = array[0];
     for (int i = 1; i < n; ++i) {
         ans = std::max(ans, array[i]);
@@ -48,8 +49,8 @@ int RadixSort::getMaxValueOperations(int *array, int n, int &counter) {
     return ans;
 }
 
-int RadixSort::radixSortOperations(int *array, int n) {
-    int counter = 0;
+int64_t RadixSort::radixSortOperations(int *array, int n) {
+    int64_t counter = 0;
     int exp = 1;
     int res[n * 4];
     int max = getMaxValueOperations(array, n, counter);

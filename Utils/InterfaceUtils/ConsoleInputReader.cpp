@@ -5,6 +5,10 @@
 #include <string>
 #include <iostream>
 
+/**
+ * Read numbers from console to launch array sorting.
+ * @return user's parsed input
+ */
 static int readConsoleInput() {
     std::string input;
     int ans;
